@@ -1,0 +1,128 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --base-blue: #0052FF;
+  --cyan-accent: #00D4FF;
+  --petroleum-950: #0A0E14;
+  --petroleum-900: #0F1419;
+  --petroleum-800: #1A2332;
+}
+
+* {
+  scrollbar-width: thin;
+  scrollbar-color: var(--base-blue) var(--petroleum-900);
+}
+
+*::-webkit-scrollbar {
+  width: 6px;
+}
+
+*::-webkit-scrollbar-track {
+  background: var(--petroleum-900);
+}
+
+*::-webkit-scrollbar-thumb {
+  background: var(--base-blue);
+  border-radius: 3px;
+}
+
+body {
+  background-color: var(--petroleum-950);
+  color: #E8EDF3;
+  font-family: 'Chakra Petch', sans-serif;
+}
+
+/* Oil drop animation */
+@keyframes oil-drop {
+  0% {
+    transform: translateY(-100%);
+    opacity: 0;
+  }
+  10% {
+    opacity: 0.6;
+  }
+  100% {
+    transform: translateY(100vh);
+    opacity: 0;
+  }
+}
+
+.animate-oil-drop {
+  animation: oil-drop 4s ease-in infinite;
+}
+
+/* Pipeline flow animation */
+@keyframes flow {
+  0% {
+    stroke-dasharray: 0 1000;
+  }
+  50% {
+    stroke-dasharray: 500 1000;
+  }
+  100% {
+    stroke-dasharray: 1000 1000;
+  }
+}
+
+.animate-flow {
+  animation: flow 3s ease-in-out infinite;
+}
+
+.animate-flow-reverse {
+  animation: flow 3s ease-in-out infinite reverse;
+}
+
+/* Gradient animation */
+@keyframes gradient {
+  0%, 100% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+}
+
+.animate-gradient {
+  background-size: 200% 200%;
+  animation: gradient 3s ease infinite;
+}
+
+/* Radial gradient background */
+.bg-gradient-radial {
+  background: radial-gradient(ellipse at center, var(--tw-gradient-from), var(--tw-gradient-via), var(--tw-gradient-to));
+}
+
+/* TradingView widget styling overrides */
+.tradingview-widget-container {
+  width: 100% !important;
+}
+
+.tradingview-widget-container iframe {
+  width: 100% !important;
+}
+
+/* Pulse glow effect */
+@keyframes pulse-glow {
+  0%, 100% {
+    box-shadow: 0 0 20px rgba(0, 82, 255, 0.3);
+  }
+  50% {
+    box-shadow: 0 0 40px rgba(0, 82, 255, 0.6);
+  }
+}
+
+.animate-pulse-glow {
+  animation: pulse-glow 2s ease-in-out infinite;
+}
+
+/* Twitter embed overrides */
+.twitter-timeline {
+  width: 100% !important;
+}
+
+/* Hide TradingView copyright for cleaner look */
+.tradingview-widget-copyright {
+  display: none !important;
+}
